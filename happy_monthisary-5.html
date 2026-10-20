@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Monthisary, Sayang ♡</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Great+Vibes&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--rose:#c65e79;--deep:#773e55;--cream:#fff8f3;--pink:#f8dce3}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:'DM Sans',sans-serif}
+body{overflow:hidden;background:#fff8f3;color:var(--deep)}
+.screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;transition:opacity .8s ease,transform .8s ease}
+.screen.hidden{opacity:0;pointer-events:none;transform:scale(1.025)}
+#intro{background:radial-gradient(ellipse at 50% 45%,#fff 0%,#fff7f2 52%,#f7dce4 100%);text-align:center;z-index:2;cursor:pointer}
+#intro:before,#intro:after{content:'✿';position:absolute;color:#d89aaa;opacity:.32;font-size:clamp(80px,16vw,180px);animation:float 5s ease-in-out infinite}
+#intro:before{top:9%;left:8%;transform:rotate(-18deg)}
+#intro:after{content:'♡';bottom:8%;right:10%;font-size:clamp(90px,17vw,190px);animation-delay:-2s}
+.intro-content{position:relative;z-index:1;max-width:850px}
+.eyebrow{font-size:.75rem;letter-spacing:.28em;text-transform:uppercase;color:#b77787;margin-bottom:22px}
+h1{font-family:'Great Vibes',cursive;font-weight:400;color:#b54e6c;font-size:clamp(3.5rem,10vw,7.6rem);line-height:1.08;margin:0;text-shadow:0 5px 28px #dba5b333}
+h1 span{display:block;font-size:.65em;margin-top:6px}
+.tap-hint{margin-top:34px;color:#a97983;font-size:.85rem;letter-spacing:.12em;animation:pulse 1.8s ease-in-out infinite}
+.tiny-heart{display:inline-block;color:#c65e79;margin:0 8px}
+#bouquet-screen{z-index:1;background:linear-gradient(145deg,#fff9f4,#f9e7e9 58%,#f5dce2);overflow:auto}
+.scene{width:min(100%,780px);text-align:center;max-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.scene-kicker{font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;color:#b77787;margin:0 0 4px}
+.scene-title{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(1.5rem,4vw,2.35rem);margin:0;color:#75475a}
+.bouquet-button{border:0;background:transparent;cursor:pointer;padding:0;margin:0;max-width:600px;width:min(100%,600px);filter:drop-shadow(0 18px 20px #874d5b20);transition:transform .35s ease,filter .35s ease;outline-offset:8px}
+.bouquet-button:hover{transform:translateY(-5px) scale(1.015);filter:drop-shadow(0 23px 25px #874d5b30)}
+.bouquet-button:active{transform:scale(.985)}
+.bouquet-button svg{display:block;width:100%;height:auto;max-height:64vh}
+.click-note{font-size:.88rem;color:#a46e7c;margin:0 0 8px}
+.message{opacity:0;transform:translateY(12px);max-height:0;overflow:hidden;transition:opacity .7s ease,transform .7s ease,max-height .7s ease;margin:0 auto}
+.message.show{opacity:1;transform:translateY(0);max-height:220px}
+.message h2{font-family:'Great Vibes',cursive;font-weight:400;font-size:clamp(2.7rem,7vw,4.5rem);color:#b54e6c;margin:4px 0 0}
+.message p{font-family:'Playfair Display',serif;font-style:italic;line-height:1.65;font-size:clamp(.95rem,2.5vw,1.1rem);max-width:480px;margin:0 auto 12px;color:#815466}
+.back{border:1px solid #d9a2b0;border-radius:99px;background:#ffffff70;padding:10px 17px;color:#92586b;font:inherit;font-size:.8rem;cursor:pointer;margin-top:10px}
+.back:hover{background:#fff}
+.sparkle{position:fixed;pointer-events:none;z-index:5;font-size:20px;animation:burst 1.2s ease-out forwards}
+@keyframes pulse{50%{opacity:.45}}
+@keyframes float{0%,100%{translate:0 0}50%{translate:0 -13px}}
+@keyframes burst{0%{opacity:0;transform:translate(0,0) scale(.4)}20%{opacity:1}100%{opacity:0;transform:translate(var(--x),var(--y)) scale(1.3) rotate(35deg)}}
+@media(max-height:700px){.bouquet-button svg{max-height:48vh}.scene-title{font-size:1.45rem}.scene-kicker{margin-top:5px}.message h2{font-size:2.7rem}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<section class="screen" id="intro" aria-label="Halaman pembuka">
+  <div class="intro-content">
+    <div class="eyebrow">a little love note for you</div>
+    <h1>Happy Monthisary<span>yang Ke-4, Sayang</span></h1>
+    <div class="tap-hint"><span class="tiny-heart">♡</span> sentuh layar untuk membuka <span class="tiny-heart">♡</span></div>
+  </div>
+</section>
+
+<section class="screen hidden" id="bouquet-screen" aria-label="Halaman karangan bunga">
+  <main class="scene">
+    <p class="scene-kicker">especially for you</p>
+    <h2 class="scene-title">Satu buket kecil, sejuta rasa</h2>
+    <button class="bouquet-button" id="bouquet" aria-label="Klik karangan bunga untuk membuka ucapan">
+      <svg viewBox="0 0 520 500" role="img" aria-label="Ilustrasi karangan bunga besar bernuansa merah muda">
+        <defs>
+          <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff6e9"/><stop offset="1" stop-color="#e9b8c4"/></linearGradient>
+          <linearGradient id="wrap" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f9e7d8"/><stop offset="1" stop-color="#d994a9"/></linearGradient>
+          <radialGradient id="petal"><stop stop-color="#fff1f3"/><stop offset="1" stop-color="#e889a4"/></radialGradient>
+          <radialGradient id="redpetal"><stop stop-color="#ffe3e7"/><stop offset="1" stop-color="#c84e70"/></radialGradient>
+          <g id="flower">
+            <ellipse rx="13" ry="25" cy="-16" fill="url(#petal)"/>
+            <ellipse rx="13" ry="25" cy="-16" fill="url(#petal)" transform="rotate(60)"/>
+            <ellipse rx="13" ry="25" cy="-16" fill="url(#petal)" transform="rotate(120)"/>
+            <ellipse rx="13" ry="25" cy="-16" fill="url(#petal)" transform="rotate(180)"/>
+            <ellipse rx="13" ry="25" cy="-16" fill="url(#petal)" transform="rotate(240)"/>
+            <ellipse rx="13" ry="25" cy="-16" fill="url(#petal)" transform="rotate(300)"/>
+            <circle r="10" fill="#d99a55"/><circle r="4" fill="#f9d58c"/>
+          </g>
+          <g id="rose">
+            <circle r="25" fill="url(#redpetal)"/>
+            <path d="M-17 -2 C-25 -20 -3 -29 8 -18 C24 -8 15 8 3 7 C-8 7 -12 -4 -3 -10 C7 -16 15 -5 8 1 C3 6 -3 1 0 -3" fill="none" stroke="#b94465" stroke-width="5" stroke-linecap="round"/>
+          </g>
+          <g id="leaf"><path d="M0 0 C-30 -8 -37 -35 -4 -39 C14 -24 12 -9 0 0Z" fill="#6f9b78"/><path d="M-1 -2 L-5 -30" stroke="#477956" stroke-width="2" fill="none"/></g>
+        </defs>
+        <!-- stems -->
+        <g stroke="#658c6d" stroke-width="4" fill="none" stroke-linecap="round">
+          <path d="M260 265 L245 390"/><path d="M255 260 L290 390"/><path d="M220 245 L235 388"/><path d="M290 240 L275 388"/><path d="M190 225 L222 380"/><path d="M320 220 L290 382"/><path d="M165 200 L215 370"/><path d="M350 195 L300 372"/><path d="M245 245 L260 390"/><path d="M280 255 L280 390"/>
+        </g>
+        <!-- leaves -->
+        <g>
+          <use href="#leaf" transform="translate(236 319) rotate(-35) scale(.8)"/><use href="#leaf" transform="translate(278 337) rotate(45) scale(.8)"/>
+          <use href="#leaf" transform="translate(218 293) rotate(-48) scale(.75)"/><use href="#leaf" transform="translate(299 290) rotate(38) scale(.8)"/>
+          <use href="#leaf" transform="translate(204 266) rotate(-38) scale(.75)"/><use href="#leaf" transform="translate(320 258) rotate(42) scale(.8)"/>
+          <use href="#leaf" transform="translate(225 346) rotate(-65) scale(.7)"/><use href="#leaf" transform="translate(293 354) rotate(55) scale(.7)"/>
+        </g>
+        <!-- tiny filler flowers -->
+        <g fill="#fff8f0" stroke="#e5b8c3" stroke-width="1">
+          <circle cx="156" cy="178" r="8"/><circle cx="142" cy="194" r="6"/><circle cx="365" cy="167" r="8"/><circle cx="383" cy="190" r="6"/>
+          <circle cx="192" cy="143" r="7"/><circle cx="329" cy="137" r="7"/><circle cx="250" cy="116" r="8"/><circle cx="294" cy="162" r="6"/>
+        </g>
+        <g fill="#e3b65f"><circle cx="156" cy="178" r="3"/><circle cx="142" cy="194" r="2.5"/><circle cx="365" cy="167" r="3"/><circle cx="383" cy="190" r="2.5"/><circle cx="192" cy="143" r="2.5"/><circle cx="329" cy="137" r="2.5"/><circle cx="250" cy="116" r="3"/><circle cx="294" cy="162" r="2.5"/></g>
+        <!-- large flowers -->
+        <use href="#flower" transform="translate(184 190) scale(1.1)"/>
+        <use href="#flower" transform="translate(338 187) scale(1.05)"/>
+        <use href="#flower" transform="translate(235 137) scale(1.13)"/>
+        <use href="#flower" transform="translate(294 119) scale(1.05)"/>
+        <use href="#flower" transform="translate(145 228) scale(.92)"/>
+        <use href="#flower" transform="translate(375 224) scale(.92)"/>
+        <use href="#rose" transform="translate(260 203) scale(1.12)"/>
+        <use href="#rose" transform="translate(211 239) scale(.9)"/>
+        <use href="#rose" transform="translate(315 238) scale(.9)"/>
+        <use href="#rose" transform="translate(260 95) scale(.78)"/>
+        <use href="#rose" transform="translate(171 153) scale(.72)"/>
+        <use href="#rose" transform="translate(354 148) scale(.75)"/>
+        <!-- wrapping paper -->
+        <path d="M157 250 Q255 298 363 245 L302 407 Q261 432 218 405Z" fill="url(#paper)" stroke="#d6a0ad" stroke-width="2"/>
+        <path d="M157 250 Q245 302 363 245 L275 378Z" fill="#fff9ef" opacity=".72"/>
+        <path d="M157 250 Q203 324 218 405 L258 347Z" fill="#e7b8c3" opacity=".78"/>
+        <path d="M363 245 Q330 320 302 407 L276 347Z" fill="#d990a5" opacity=".68"/>
+        <path d="M218 405 Q261 431 302 407 L280 365 Q257 379 239 365Z" fill="url(#wrap)" stroke="#d6a0ad" stroke-width="1.5"/>
+        <!-- ribbon -->
+        <path d="M260 365 C224 337 205 363 230 382 C245 392 256 378 260 371 C272 398 303 388 302 370 C301 350 276 351 260 365Z" fill="#c65e79" stroke="#a74865" stroke-width="2"/>
+        <path d="M257 374 L244 416 L265 407 L277 421 L270 377Z" fill="#d7778f" stroke="#a74865" stroke-width="1.5"/>
+        <circle cx="260" cy="369" r="7" fill="#f4c2cb" stroke="#a74865" stroke-width="1.5"/>
+        <!-- little hearts -->
+        <g fill="#cf7890" opacity=".85"><path d="M112 286 C96 271 80 292 112 313 C144 292 128 271 112 286Z"/><path d="M405 280 C394 269 382 284 405 300 C428 284 416 269 405 280Z"/></g>
+      </svg>
+    </button>
+    <p class="click-note" id="click-note">♡ klik buket bunganya, sayang ♡</p>
+    <div class="message" id="message" aria-live="polite">
+      <h2>Happy Monthisary, Sayang!</h2>
+      <p>Empat bulan bersamamu, dan aku masih memilih kamu—hari ini, besok, dan seterusnya. Semoga kita terus tumbuh seperti bunga: indah, kuat, dan selalu saling menjaga. Aku sayang kamu. ♡</p>
+    </div>
+    <button class="back" id="back">↶ kembali ke awal</button>
+  </main>
+</section>
+<script>
+const intro=document.getElementById('intro');
+const page=document.getElementById('bouquet-screen');
+const bouquet=document.getElementById('bouquet');
+const message=document.getElementById('message');
+const note=document.getElementById('click-note');
+function openBouquet(){intro.classList.add('hidden');page.classList.remove('hidden');}
+intro.addEventListener('click',openBouquet);
+function sparkleBurst(){
+  const rect=bouquet.getBoundingClientRect();
+  const symbols=['♡','✦','✿','♥'];
+  for(let i=0;i<18;i++){
+    const s=document.createElement('span');s.className='sparkle';s.textContent=symbols[i%symbols.length];
+    s.style.left=(rect.left+rect.width*(.25+Math.random()*.5))+'px';
+    s.style.top=(rect.top+rect.height*(.25+Math.random()*.35))+'px';
+    s.style.setProperty('--x',((Math.random()-.5)*190)+'px');
+    s.style.setProperty('--y',(-35-Math.random()*150)+'px');
+    s.style.color=['#c65e79','#d5a052','#a6b88d','#e39ab0'][i%4];
+    document.body.appendChild(s);setTimeout(()=>s.remove(),1300);
+  }
+}
+bouquet.addEventListener('click',()=>{
+  const show=!message.classList.contains('show');
+  message.classList.toggle('show',show);
+  note.textContent=show?'♡ dari hatiku, untuk kamu ♡':'♡ klik buket bunganya, sayang ♡';
+  if(show)sparkleBurst();
+});
+document.getElementById('back').addEventListener('click',()=>{
+  message.classList.remove('show');note.textContent='♡ klik buket bunganya, sayang ♡';
+  page.classList.add('hidden');intro.classList.remove('hidden');
+});
+document.addEventListener('keydown',e=>{if(e.key==='Enter'&& !intro.classList.contains('hidden'))openBouquet();});
+</script>
+</body>
+</html>
