@@ -11,8 +11,39 @@
 :root{--rose:#c65e79;--deep:#773e55;--cream:#fff8f3;--pink:#f8dce3}
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;font-family:'DM Sans',sans-serif}
-body{overflow:hidden;background:#fff8f3;color:var(--deep)}
-.screen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;transition:opacity .8s ease,transform .8s ease}
+body{
+  overflow-x:hidden;
+  overflow-y:auto;
+  background:#fff8f3;
+  color:var(--deep);
+}
+.screen{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+  transition:opacity .8s ease,transform .8s ease;
+}
+
+#bouquet-screen:not(.hidden){
+  position:absolute;
+  inset:0;
+  height:100%;
+  min-height:100%;
+  overflow-y:auto;
+  overflow-x:hidden;
+  display:block;
+}
+
+#bouquet-screen .scene{
+  min-height:100%;
+  height:auto;
+  max-height:none;
+  margin:0 auto;
+  justify-content:flex-start;
+}
 .screen.hidden{opacity:0;pointer-events:none;transform:scale(1.025)}
 #intro{background:radial-gradient(ellipse at 50% 45%,#fff 0%,#fff7f2 52%,#f7dce4 100%);text-align:center;z-index:2;cursor:pointer}
 #intro:before,#intro:after{content:'✿';position:absolute;color:#d89aaa;opacity:.32;font-size:clamp(80px,16vw,180px);animation:float 5s ease-in-out infinite}
